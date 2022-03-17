@@ -10,32 +10,26 @@ class Login extends React.Component {
       error: null,
       navigate: false,
     };
-    // on enregistre les données de formulaire
-    // hors des state pour
+
     this.email = "";
     this.password = "";
   }
 
-  //change les attibuts
   onChangetext(type, text) {
     this[type] = text;
   }
 
-  // on envoie le formulaire
   onSubmitForm = () => {
     let datas = {
       email: this.email,
       password: this.password,
     };
 
-    // envoie le formulaire vers l'api
     axios
       .post(config.api_url + "/api/v1/user/login", datas)
       .then((response) => {
         console.log(response);
         if (response.data.status === 200) {
-          // si tout se passe bien enregistrement du token dans
-          // le localstorage
           window.localStorage.setItem("mc-token", response.data.token);
           this.setState({ navigate: true });
         }

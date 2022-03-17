@@ -3,6 +3,10 @@
   src: url("assets/fonts/pacifico/Pacifico-Regular.ttf") format("ttf");
 }
 
+:root {
+  --primary-color: #333;
+}
+
 @keyframes floating {
   0% {
     transform: translate(0, 0px);
@@ -26,7 +30,8 @@
 }
 
 main {
-  padding-top: 150px;
+  padding-bottom: 50px; /* footer */
+  padding-top: 150px; /* header */
   max-width: 1200px;
   margin: 0 auto;
 }
@@ -48,7 +53,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: #333;
+  background-color: var(--primary-color);
 }
 
 nav ul {
@@ -74,7 +79,7 @@ nav ul li {
   display: flex;
   margin-right: 20px;
   font-size: 20px;
-  color: #333;
+  color: var(--primary-color);
   cursor: pointer;
   color: #fff;
   text-decoration: none;
@@ -108,7 +113,7 @@ nav ul li {
   display: inline-block;
   padding: 10px 1%;
   vertical-align: top;
-  border: 2px solid #333;
+  border: 2px solid var(--primary-color);
   box-shadow: grey;
   border-radius: 5%;
   margin-right: 1%;
@@ -157,13 +162,13 @@ nav ul li {
 }
 
 .product-mosaic .addToBasket {
-  color: #ffbd2f;
+  color: var(--primary-color);
   font-size: 1.6em;
   margin-left: 5%;
 }
 
 .popUp {
-  border: 2px solid #ffbd2f;
+  border: 2px solid var(--primary-color);
   border-radius: 20px;
   position: fixed;
   top: 100px;
@@ -188,7 +193,7 @@ nav ul li {
 .popUp button.closePopUp {
   width: 80%;
   margin: auto;
-  background-color: #ffbd2f;
+  background-color: var(--primary-color);
   color: white;
   text-shadow: 0 1px 0 #c4c3c2, 0 -1px 0 #c4c3c2;
   margin-top: 10px;
@@ -220,7 +225,7 @@ nav ul li {
 }
 
 .comeBack {
-  color: #ffbd2f;
+  color: var(--primary-color);
   font-size: 28px;
 }
 
@@ -245,7 +250,7 @@ nav ul li {
 }
 
 .basketTable {
-  border: 2px solid #ffbd2f;
+  border: 2px solid var(--primary-color);
   border-radius: 12px;
   padding: 15px 2%;
   /* margin-top: 20px; */
@@ -298,7 +303,7 @@ nav ul li {
 }
 
 .popUp {
-  border: 2px solid #ffbd2f;
+  border: 2px solid var(--primary-color);
   border-radius: 20px;
   position: fixed;
   top: 100px;
@@ -323,7 +328,7 @@ nav ul li {
 .popUp button.closePopUp {
   width: 80%;
   margin: auto;
-  background-color: #ffbd2f;
+  background-color: var(--primary-color);
   color: white;
   text-shadow: 0 1px 0 #c4c3c2, 0 -1px 0 #c4c3c2;
   margin-top: 10px;
@@ -352,7 +357,7 @@ nav ul li {
   text-align: center;
   width: 50%;
   margin: auto;
-  border: 2px solid #ffbd2f;
+  border: 2px solid var(--primary-color);
   border-radius: 12px;
   padding: 10px 2% 20px 2%;
 }
@@ -384,7 +389,7 @@ nav ul li {
 }
 
 .b-form input[type="submit"] {
-  background-color: #ffbd2f;
+  background-color: var(--primary-color);
   width: 35%;
   color: white;
   text-shadow: 0 1px 0 #c4c3c2, 0 -1px 0 #c4c3c2;
@@ -392,7 +397,7 @@ nav ul li {
 
 .tableProduct {
   width: 100%;
-  border: 2px solid #ffbd2f;
+  border: 2px solid var(--primary-color);
   border-radius: 12px;
   margin: auto;
   text-align: center;
@@ -402,7 +407,7 @@ nav ul li {
 .tableProduct thead {
   display: flex;
   justify-content: space-between;
-  border-bottom: 2px solid #ffbd2f;
+  border-bottom: 2px solid var(--primary-color);
   margin: 0 20px;
   padding: 20px 0;
 }
@@ -514,16 +519,30 @@ nav ul li {
   }
 }
 
-.footer {
+footer {
+  height: 50px;
+  padding: 5px;
   display: flex;
   position: fixed;
   bottom: 0;
   width: 100%;
   justify-content: center;
-  padding: 5px;
-  background-color: #333333;
+  align-items: center;
+  background-color: var(--primary-color);
+}
+
+footer div {
+  max-width: 400px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 20px;
+}
+
+footer div a {
+  text-decoration: none;
   color: white;
-  size: 25%;
 }
 
 /* media for a responsive header and nav */
@@ -578,7 +597,7 @@ nav ul li {
     justify-content: space-between;
     align-items: center;
     border-radius: 15px;
-    border: 2px solid #ffbd2f;
+    border: 2px solid var(--primary-color);
     margin: 15px 0;
   }
 

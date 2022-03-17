@@ -14,6 +14,7 @@ class Basket extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
+      redirect: false,
       navigate: false,
       orderId: null,
       isLoading: false,
@@ -75,9 +76,9 @@ class Basket extends React.Component {
 
   // au click on enregistre une commande
   onClickSaveOrder() {
-    this.setState({ isLoading: true });
-
     if (this.props.user.isLogged === true) {
+      this.setState({ isLoading: true });
+
       let data = {
         user_id: this.props.user.infos.id,
         basket: this.props.cart.basket,
@@ -94,6 +95,8 @@ class Basket extends React.Component {
             this.setState({ navigate: true, orderId: response.data.orderId });
           }, 3000);
         });
+    } else {
+      this.setState({ redirect: true });
     }
   }
 
@@ -102,6 +105,9 @@ class Basket extends React.Component {
       return <Navigate to={"/success/" + this.state.orderId} />;
     }
 
+    if (this.state.redirect) {
+      return <Navigate to={"/login"} />;
+    }
     return (
       <div>
         {this.state.isLoading ? (
