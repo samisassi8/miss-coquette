@@ -34,7 +34,6 @@ class AddProduct extends React.Component {
         headers: { "x-access-token": this.props.user.infos.token },
       })
       .then((response) => {
-        console.log(response);
         if (response.data.status === 200) {
           this.props.loadProducts();
           this.setState({ navigate: true });
@@ -67,7 +66,6 @@ class AddProduct extends React.Component {
           "x-access-token": this.props.user.infos.token,
         },
       }).then((response) => {
-        console.log(response);
         if (response.data.status === 200) {
           let datas = {
             name: this.name,
@@ -126,12 +124,10 @@ class AddProduct extends React.Component {
           <input
             type="file"
             onChange={(e) => {
-              console.log(e.currentTarget.files[0]);
               this.setState(
                 { selectedFile: e.currentTarget.files[0] },
                 () => {}
               );
-              console.log(this.state.selectedFile);
             }}
           />
           <textarea

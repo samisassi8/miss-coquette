@@ -37,8 +37,6 @@ class Detail extends React.Component {
     let index = this.props.product.products.findIndex(
       (product) => product.id === parseInt(id)
     );
-    console.log(id);
-    console.log(index);
     return (
       <div>
         <h2>Detail</h2>

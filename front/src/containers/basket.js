@@ -29,13 +29,8 @@ class Basket extends React.Component {
     };
   }
 
-  componentDidMount() {
-    console.log("panier props", this.props);
-  }
-
   // chargement des produits dans le panier
   listBasket() {
-    console.log("this.props.basket...", this.props.cart.basket);
     return this.props.cart.basket.map((product) => {
       let total = parseInt(product.price) * parseInt(product.quantityInCart);
       return (
@@ -90,7 +85,6 @@ class Basket extends React.Component {
           headers: { "x-access-token": this.props.user.infos.token },
         })
         .then((response) => {
-          console.log(response);
           setTimeout(() => {
             this.setState({ navigate: true, orderId: response.data.orderId });
           }, 3000);

@@ -30,7 +30,6 @@ class CheckoutForm extends React.Component {
       { headers: { "x-access-token": this.props.user.infos.token } }
     );
 
-    console.log(paymentAuth);
     const secret = paymentAuth.data.client_secret;
     const payment = await this.props.stripe.confirmCardPayment(secret, {
       payment_method: {
@@ -43,11 +42,9 @@ class CheckoutForm extends React.Component {
 
     // Error case
     if (payment.error) {
-      console.log(payment.error.message);
     } else {
       // If payment successful
       if (payment.paymentIntent.status === "succeeded") {
-        console.log("Payment successfull");
         let data = {
           orderId: this.props.orderId,
           status: "payed",
@@ -58,7 +55,6 @@ class CheckoutForm extends React.Component {
             headers: { "x-access-token": this.props.user.infos.token },
           })
           .then((response) => {
-            console.log(response);
             this.setState({ navigate: true });
           });
       }

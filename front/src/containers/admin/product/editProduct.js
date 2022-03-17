@@ -5,7 +5,6 @@ import { Navigate } from "react-router-dom";
 import { connect } from "react-redux";
 import { loadProducts } from "../../../actions/product/productAction";
 
-// component d'edition
 class EditProduct extends React.Component {
   constructor(props) {
     super(props);
@@ -14,8 +13,7 @@ class EditProduct extends React.Component {
       error: null,
       navigate: false,
     };
-    // on enregistre les données de formulaire
-    // hors des state pour
+
     this.name = "";
     this.description = "";
     this.price = "";
@@ -23,12 +21,10 @@ class EditProduct extends React.Component {
     this.picture = "";
   }
 
-  //change les attibuts
   onChangetext(type, text) {
     this[type] = text;
   }
 
-  // sauvegarde les produits en bdd
   saveProduct(datas) {
     let id = this.props.params.id;
     axios
@@ -36,7 +32,6 @@ class EditProduct extends React.Component {
         headers: { "x-access-token": this.props.user.infos.token },
       })
       .then((response) => {
-        console.log(response);
         if (response.data.status === 200) {
           this.props.loadProducts();
           this.setState({ navigate: true });
@@ -47,7 +42,6 @@ class EditProduct extends React.Component {
       });
   }
 
-  // sauvegarde les produits entièrement avec les photos en plus
   saveCompleteProduct(photo) {
     if (this.state.selectedFile === null) {
       let datas = {
@@ -62,7 +56,6 @@ class EditProduct extends React.Component {
     } else {
       let formData = new FormData();
       formData.append("image", this.state.selectedFile);
-      // enregistrement de la photo
       axios({
         method: "post",
         url: config.api_url + "/api/v1/product/pict",
@@ -72,7 +65,6 @@ class EditProduct extends React.Component {
           "x-access-token": this.props.user.infos.token,
         },
       }).then((response) => {
-        console.log(response);
         if (response.data.status === 200) {
           let datas = {
             name: this.name,
@@ -147,13 +139,7 @@ class EditProduct extends React.Component {
             <input
               type="file"
               onChange={(e) => {
-                console.log(e.currentTarget.files[0]);
-                this.setState(
-                  { selectedFile: e.currentTarget.files[0] },
-                  () => {
-                    console.log(this.state.selectedFile);
-                  }
-                );
+                this.setState({ selectedFile: e.currentTarget.files[0] });
               }}
             />
             <textarea

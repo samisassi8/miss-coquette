@@ -16,7 +16,6 @@ class ArticleProduct extends React.Component {
     };
   }
   onClickAddBasket = () => {
-    console.log("this.props:", this.props);
     if (this.state.quantity !== "" && !isNaN(this.state.quantity)) {
       this.setState({ isPopUp: true });
       this.props.addToBasket(

@@ -7,23 +7,16 @@ import axios from "axios";
 
 // page d'admin pour gérer les produits
 class Admin extends React.Component {
-  componentDidMount() {
-    console.log(this.props);
-  }
-
-  // fonction qui supprime un produit
   onClickDeleteProduct(id) {
     axios
       .delete(config.api_url + "/api/v1/product/delete/" + id, {
         headers: { "x-access-token": this.props.user.infos.token },
       })
       .then((response) => {
-        console.log(response);
         this.props.loadProducts();
       });
   }
 
-  // component qui affiche la liste de produit
   renderProductList() {
     return this.props.product.products.map((product) => {
       return (
@@ -44,14 +37,12 @@ class Admin extends React.Component {
               Supprimer
             </button>
           </td>
-          {/* <td>{AFFICHER LE STOCK DU PRODUIT}</td> */}
         </tr>
       );
     });
   }
 
   render() {
-    console.log("product:", this.props.product);
     return (
       <div>
         <h2>Admin</h2>

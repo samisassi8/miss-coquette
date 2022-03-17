@@ -19,7 +19,6 @@ const Profil = (props) => {
 
   // s'execute à tous les changement de props (useEffect) écrase nos states par les valeurs dans le store
   useEffect(() => {
-    console.log(props);
     setFirstName(props.user.infos.firstName);
     setLastName(props.user.infos.lastName);
     setAddress(props.user.infos.address);
@@ -40,7 +39,6 @@ const Profil = (props) => {
       city: city,
       phone: phone,
     };
-    console.log(data);
     axios
       .put(
         config.api_url + "/api/v1/user/update/" + props.user.infos.id,
@@ -48,7 +46,6 @@ const Profil = (props) => {
         { headers: { "x-access-token": props.user.infos.token } }
       )
       .then((response) => {
-        console.log(response);
         if (response.data.status === 200) {
           setMsg("Le profil a bien été modifié !");
           window.location.reload(); //raffraichit la page

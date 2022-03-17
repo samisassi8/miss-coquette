@@ -18,7 +18,6 @@ const RequireDataAuth = (props) => {
       props.loadProducts();
     }
     if (props.user.infos.role !== "admin" && props.isAdmin) {
-      console.log("user");
       document.location.href = "/";
     }
     if (props.user.isLogged === false) {

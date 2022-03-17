@@ -28,11 +28,13 @@ class Login extends React.Component {
     axios
       .post(config.api_url + "/api/v1/user/login", datas)
       .then((response) => {
-        console.log(response);
         if (response.data.status === 200) {
           window.localStorage.setItem("mc-token", response.data.token);
           this.setState({ navigate: true });
         }
+      })
+      .catch((err) => {
+        return err;
       });
   };
   render() {
