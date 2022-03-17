@@ -610,7 +610,7 @@ footer div a {
     padding: 10px;
   }
   .tableProduct thead {
-    display: flex;
+    display: none;
     flex-direction: column;
   }
 
