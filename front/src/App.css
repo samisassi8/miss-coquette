@@ -30,7 +30,7 @@
 }
 
 main {
-  padding-bottom: 50px; /* footer */
+  padding-bottom: 150px; /* footer */
   padding-top: 150px; /* header */
   max-width: 1200px;
   margin: 0 auto;
