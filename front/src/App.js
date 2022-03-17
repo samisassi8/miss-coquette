@@ -16,6 +16,7 @@ import EditProduct from "./containers/admin/product/editProduct";
 import Register from "./containers/user/register";
 import Login from "./containers/user/login";
 import Logout from "./containers/user/logout";
+import Footer from "./containers/footer";
 
 function App() {
   return (
@@ -96,7 +97,7 @@ function App() {
           />
         </Routes>
       </main>
-      {/* </header> */}
+      <Footer />
     </div>
   );
 }

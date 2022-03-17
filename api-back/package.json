@@ -11,8 +11,6 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "@stripe/react-stripe-js": "^1.7.0",
-    "@stripe/stripe-js": "^1.23.0",
     "bcrypt": "^5.0.1",
     "body-parser": "^1.19.0",
     "cors": "^2.8.5",
@@ -25,7 +23,6 @@
     "promise-mysql": "^5.0.3",
     "react-router-dom": "^6.2.2-pre.0",
     "sql": "^0.78.0",
-    "stripe": "^8.205.0",
     "webpack": "^5.44.0"
   }
 }
