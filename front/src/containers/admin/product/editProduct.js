@@ -73,7 +73,7 @@ class EditProduct extends React.Component {
             price: this.price,
             picture: response.data.url,
           };
-          // lorsque l'image est sauvegardé on sauvegarde le produit
+          // on sauvegarde le produit
 
           this.saveProduct(datas);
         }
