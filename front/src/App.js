@@ -2,7 +2,6 @@ import React from "react";
 import "./App.css";
 import { Routes, Route } from "react-router-dom";
 import RequireDataAuth from "./helpers/require-data-auth";
-
 import Header from "./containers/header";
 import Home from "./containers/home";
 import Product from "./containers/product";

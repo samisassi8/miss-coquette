@@ -5,9 +5,6 @@ import { connect } from "react-redux";
 
 //Page de succès de la commande
 class Success extends React.Component {
-  constructor(props) {
-    super(props);
-  }
   componentDidMount() {
     window.localStorage.removeItem("mc-basket");
     this.props.cleanBasket();

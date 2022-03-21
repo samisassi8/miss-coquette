@@ -2,6 +2,8 @@ import React from "react";
 import axios from "axios";
 import { config } from "../../config.js";
 import { Navigate } from "react-router-dom";
+import { connectUser } from "../../actions/user/userAction";
+import { connect } from "react-redux";
 
 class Login extends React.Component {
   constructor(props) {
@@ -30,6 +32,9 @@ class Login extends React.Component {
       .then((response) => {
         if (response.data.status === 200) {
           window.localStorage.setItem("mc-token", response.data.token);
+          let user = response.data.user;
+          user.token = response.data.token;
+          this.props.connectUser(user);
           this.setState({ navigate: true });
         }
       })
@@ -73,4 +78,14 @@ class Login extends React.Component {
   }
 }
 
-export default Login;
+const mapStateToProps = (store) => {
+  return {
+    user: store.user,
+  };
+};
+
+const mapDispatchToProps = {
+  connectUser,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Login);

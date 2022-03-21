@@ -17,30 +17,32 @@ const RequireDataAuth = (props) => {
     if (props.product.products.length === 0) {
       props.loadProducts();
     }
+    // Si tu dois etre admin et que tu ne l'es pas.
     if (props.user.infos.role !== "admin" && props.isAdmin) {
       document.location.href = "/";
     }
     if (props.user.isLogged === false) {
       const token = localStorage.getItem("mc-token");
+      //j'ai pas de token mais j'en ai besoin
       if (token === null && props.withAuth) {
         setRedirect(true);
-      } else {
+        //j'ai un token et j'en ai besoin
+      } else if (token && props.withAuth) {
         axios
           .get(config.api_url + "/api/v1/user/checkToken", {
             headers: { "x-access-token": token },
           })
           .then((res) => {
-            if (res.data.status === 200) {
-              let user = res.data.user[0];
-              user.token = token;
-              props.connectUser(user);
-            } else {
-              if (props.auth) {
-                setRedirect(true);
-              }
+            if (res.data.status !== 200) {
+              setRedirect(true);
             }
           });
+
+        // let user = res.data.user[0];
+        //     user.token = token;
+        //     props.connectUser(user);
       }
+    } else {
     }
   }, [props]);
 
