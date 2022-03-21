@@ -11,9 +11,11 @@ class ProductModel {
     return db
       .query("SELECT * FROM products")
       .then((response) => {
+        // console.log("response:", response);
         return response;
       })
       .catch((err) => {
+        // console.log("err:", err);
         return err;
       });
   }
@@ -32,7 +34,7 @@ class ProductModel {
 
   // save a product
   static saveOneProduct(req) {
-    console.log("req.body:", req.body);
+    // console.log("req.body:", req.body);
     return db
       .query(
         "INSERT INTO products (name, description, price, picture, quantity, creationTimestamp) VALUES (?,?,?,?,?, NOW())",
@@ -67,11 +69,11 @@ class ProductModel {
         ]
       )
       .then((response) => {
-        console.log("updateOneProduct response:", response);
+        // console.log("updateOneProduct response:", response);
         return response;
       })
       .catch((err) => {
-        console.log("updateOneProduct error:", err);
+        // console.log("updateOneProduct error:", err);
         return err;
       });
   }

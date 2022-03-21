@@ -1,4 +1,4 @@
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 
 module.exports = (_db) => {
@@ -10,7 +10,7 @@ class UserModel {
   // Save a member
   static saveOneUser(req) {
     return bcrypt.hash(req.body.password, saltRounds).then((hash) => {
-      console.log("hash", hash);
+      // console.log("hash", hash);
       return db
         .query(
           'INSERT INTO users (firstName, lastName, email, password, role, address, zip, city, phone, creationTimestamp, connexionTimestamp) VALUES (?, ?, ?, ?, "user", ?, ?, ?, ?, now(), now())',
@@ -26,7 +26,7 @@ class UserModel {
           ]
         )
         .then((response) => {
-          console.log(response);
+          // console.log(response);
           return response;
         })
         .catch((err) => {
@@ -40,7 +40,7 @@ class UserModel {
     return db
       .query("SELECT * FROM users WHERE email = ?", [email])
       .then((response) => {
-        console.log("getUserByEmail", response);
+        // console.log("getUserByEmail", response);
         return response;
       })
       .catch((err) => {
@@ -78,7 +78,7 @@ class UserModel {
         ]
       )
       .then((response) => {
-        console.log("update user", response);
+        // console.log("update user", response);
         return response;
       })
       .catch((err) => {

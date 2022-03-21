@@ -21,7 +21,7 @@ const RequireDataAuth = (props) => {
     if (props.user.infos.role !== "admin" && props.isAdmin) {
       document.location.href = "/";
     }
-    if (props.user.isLogged === false) {
+    if (props.user.isLogged) {
       const token = localStorage.getItem("mc-token");
       //j'ai pas de token mais j'en ai besoin
       if (token === null && props.withAuth) {
@@ -36,13 +36,9 @@ const RequireDataAuth = (props) => {
             if (res.data.status !== 200) {
               setRedirect(true);
             }
-          });
-
-        // let user = res.data.user[0];
-        //     user.token = token;
-        //     props.connectUser(user);
+          })
+          .catch((err) => err);
       }
-    } else {
     }
   }, [props]);
 

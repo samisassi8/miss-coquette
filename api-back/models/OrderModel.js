@@ -12,11 +12,11 @@ class OrderModel {
         [user_id, totalAmount]
       )
       .then((result) => {
-        console.log("result", result);
+        // console.log("result", result);
         return result;
       })
       .catch((err) => {
-        console.log("err", err);
+        // console.log("err", err);
         return err;
       });
   }
@@ -31,11 +31,11 @@ class OrderModel {
         [order_id, product.id, product.quantityInCart, total]
       )
       .then((result) => {
-        console.log("result", result);
+        // console.log("result", result);
         return result;
       })
       .catch((err) => {
-        console.log("error", err);
+        // console.log("error", err);
         return err;
       });
   }
@@ -48,11 +48,11 @@ class OrderModel {
         order_id,
       ])
       .then((result) => {
-        console.log("result", result);
+        // console.log("result", result);
         return result;
       })
       .catch((err) => {
-        console.log("error", err);
+        // console.log("error", err);
         return err;
       });
   }
@@ -62,11 +62,11 @@ class OrderModel {
     return db
       .query("SELECT * FROM orders WHERE id = ?", [id])
       .then((result) => {
-        console.log("result", result);
+        // console.log("result", result);
         return result;
       })
       .catch((err) => {
-        console.log("error", err);
+        // console.log("error", err);
         return err;
       });
   }

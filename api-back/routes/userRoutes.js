@@ -1,6 +1,4 @@
-//check le 07/02/2022  sans le withauth
-
-const bcrypt = require("bcrypt");
+const bcrypt = require("bcryptjs");
 const saltRounds = 10;
 const jwt = require("jsonwebtoken");
 const secret = "grosminet";
@@ -11,7 +9,6 @@ module.exports = (app, db) => {
 
   // member registration
   app.post("/api/v1/user/save", async (req, res, next) => {
-    // console.log(req.body);
     let check = await userModel.getUserByEmail(req.body.email);
     if (check.indexOf(0) !== -1) {
       if (check[0].email === req.body.email) {
@@ -20,19 +17,17 @@ module.exports = (app, db) => {
     }
     let user = await userModel.saveOneUser(req);
     if (user.code) {
-      //   console.log("user.code:", user.code);
       res.json({ status: 500, msg: "il y a eu un problème !", result: user });
     } else {
       res.json({ status: 200, msg: "l'utilisateur a bien été enregistré" });
     }
   });
-  /*----------------------------------------------------*/
 
   // member's connexion
   app.post("/api/v1/user/login", async (req, res, next) => {
-    console.log(req.body);
+    // console.log(req.body);
     let user = await userModel.getUserByEmail(req.body.email);
-    console.log("user:", user);
+    // console.log("user:", user);
     if (user.length === 0) {
       res.json({ status: 404, msg: "Pas d'utilisateur avec ce mail" });
     }
@@ -41,7 +36,7 @@ module.exports = (app, db) => {
         const payload = { email: req.body.email, id: user[0].id };
         const token = jwt.sign(payload, secret);
         console.log("token", token);
-        res.json({ status: 200, token: token, user_id: user[0].id });
+        res.json({ status: 200, token: token, user: user[0] });
       } else {
         res.json({
           status: 401,

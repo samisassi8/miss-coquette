@@ -1,14 +1,11 @@
-//route check 7/03/2022 sans le middleware
-
 const fs = require("fs"); // fs est natif a node pour la manipulation des files
 const withAuth = require("../withAuth"); //middleware
-// import brandR
 module.exports = (app, db) => {
   const productModel = require("../models/ProductModel")(db);
   //Route to obtain all the products
   app.get("/api/v1/product/all", async (req, res, next) => {
     let products = await productModel.getAllProducts();
-
+    // console.log("products:", products);
     if (products.code) {
       res.json({
         status: 500,
@@ -36,10 +33,10 @@ module.exports = (app, db) => {
 
   // Route to save a product
   app.post("/api/v1/product/save", withAuth, async (req, res, next) => {
-    console.log("req.body:", req.body);
+    // console.log("req.body:", req.body);
     let product = await productModel.saveOneProduct(req);
     if (product.code) {
-      console.log("error product", product);
+      // console.log("error product", product);
     } else {
       res.json({
         status: 200,
@@ -55,7 +52,7 @@ module.exports = (app, db) => {
       res.json({ status: 400, msg: "la picture n'a pas pu être récupérée" });
     }
     req.files.image.mv("public/images/" + req.files.image.name, function (err) {
-      console.log("ça passe", "/public/images/" + req.files.image.name);
+      // console.log("ça passe", "/public/images/" + req.files.image.name);
       if (err) {
         res.json({ status: 500, msg: "La photo n'a pas pu être enregistrée" });
       }
@@ -66,7 +63,7 @@ module.exports = (app, db) => {
   // route to modify one product with its id (with whitAuth)
   app.put("/api/v1/product/update/:id", withAuth, async (req, res, next) => {
     let id = req.params.id;
-    console.log("update req.body:", req.body);
+    // console.log("update req.body:", req.body);
     let product = await productModel.updateOneProduct(req, id);
     if (product.code) {
       res.json({
@@ -82,15 +79,13 @@ module.exports = (app, db) => {
   // route to delete one product with its id (withAuth)
   app.delete("/api/v1/product/delete/:id", withAuth, async (req, res, next) => {
     let id = req.params.id;
-    console.log("req.params.id:", req.params.id);
+    // console.log("req.params.id:", req.params.id);
     let product = await productModel.getOneProduct(id);
-    console.log("product:", product[0]);
-    // console.log('mon produit', product[0].picture)
+    // console.log("product:", product[0]);
 
-    //suppression de l'article
     let deleteProduct = await productModel.deleteOneProduct(id);
     if (deleteProduct.code) {
-      console.log("deleteProduct:", deleteProduct);
+      // console.log("deleteProduct:", deleteProduct);
       res.json({
         status: 500,
         msg: "il y a eu un problème !",
@@ -104,7 +99,7 @@ module.exports = (app, db) => {
         if (err) {
           res.json({ status: 500, msg: "Gros problème" });
         }
-        console.log("ça supprime");
+        // console.log("ça supprime");
       });
       res.json({ status: 200, result: deleteProduct });
     }
