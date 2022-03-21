@@ -5,7 +5,6 @@ import { config } from "../config";
 import { loadProducts } from "../actions/product/productAction";
 import { addToBasket } from "../actions/basket/basketAction";
 import Popup from "../components/popup";
-import { FaPlusCircle } from "react-icons/fa";
 
 //Page détail
 class Detail extends React.Component {
@@ -21,12 +20,15 @@ class Detail extends React.Component {
   //au click ajout dans le panier
   onClickAddBasket = (product) => {
     if (this.state.quantity !== "" && !isNaN(this.state.quantity)) {
-      this.setState({ isPopUp: true });
       this.props.addToBasket(
         this.props.cart.basket,
         product,
         this.state.quantity
       );
+      this.setState({ isPopUp: true });
+      setTimeout(() => {
+        this.setState({ isPopUp: false });
+      }, 3200);
     } else {
       this.setState({ error: "Entrez une valeur correcte (chiffre)" });
     }
@@ -38,14 +40,14 @@ class Detail extends React.Component {
       (product) => product.id === parseInt(id)
     );
     return (
-      <div>
+      <>
         <h2>Detail</h2>
 
         {/*POPUP HERE*/}
         <Popup
           isPopUp={this.state.isPopUp}
           msg={
-            "Vous avez ajouté : " +
+            "Vous avez ajouté " +
             this.state.quantity +
             " produits à votre panier !"
           }
@@ -56,9 +58,6 @@ class Detail extends React.Component {
         {/*AFFICHAGE DU PRODUIT + FORM D'ENVOI*/}
         {index !== -1 && (
           <div>
-            <Link className="comeBack" to="/product">
-              <i className="fa fa-arrow-circle-left"></i>
-            </Link>
             <div className="productDetail">
               <img
                 src={
@@ -84,20 +83,21 @@ class Detail extends React.Component {
                       this.setState({ quantity: e.currentTarget.value });
                     }}
                   />
-                  <div
+                  <button
                     className="addToBasket"
                     onClick={(e) => {
+                      e.preventDefault();
                       this.onClickAddBasket(this.props.product.products[index]);
                     }}
                   >
-                    <FaPlusCircle />
-                  </div>
+                    Ajouter au panier
+                  </button>
                 </form>
               </div>
             </div>
           </div>
         )}
-      </div>
+      </>
     );
   }
 }

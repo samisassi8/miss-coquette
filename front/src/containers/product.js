@@ -8,7 +8,8 @@ class Product extends React.Component {
   render() {
     return (
       <div>
-        <h2>Produits</h2>
+        <h1>Miss Coquette</h1>
+        <hr className="line"/>
         {this.props.product.products.length > 0 && (
           <ul className="productsList">
             {this.props.product.products.map((product, index) => {

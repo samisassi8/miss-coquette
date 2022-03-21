@@ -8,6 +8,8 @@ class Footer extends React.Component {
 
   render() {
     return (
+      <>
+        <hr className="line"/>
       <footer>
         <div>
           <a href="https://www.facebook.com/misscoquettecora59400/">
@@ -20,7 +22,8 @@ class Footer extends React.Component {
             <SiGooglemaps />
           </a>
         </div>
-      </footer>
+        </footer>
+        </>
     );
   }
 }

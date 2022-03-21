@@ -1,6 +1,6 @@
 @font-face {
-  font-family: "Pacifico-Regular";
-  src: url("assets/fonts/pacifico/Pacifico-Regular.ttf") format("ttf");
+  font-family: "Lato";
+  src: url("assets/fonts/Lato/Lato-Light.ttf") format("ttf");
 }
 
 :root {
@@ -24,9 +24,15 @@
 }
 
 .App {
-  height: 100vh;
+  min-height: 100vh;
   text-align: center;
-  font-family: "Oswald-Regular", Arial, sans-serif;
+  font-family: "Lato", Arial, sans-serif;
+  background-image: url("../src/assets/home.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-width: 100%;
+  height: 100%;
 }
 
 main {
@@ -53,7 +59,7 @@ nav {
   position: fixed;
   top: 0;
   width: 100%;
-  background-color: var(--primary-color);
+  /* background-color: var(--primary-color); */
 }
 
 nav ul {
@@ -71,17 +77,17 @@ nav ul li {
 }
 
 .nav-li:hover {
-  transform: scale(1.01);
-  text-shadow: 0 0 30px #fff;
+  transform: scale(1.05);
+  text-shadow: 0 0 50px #fff;
 }
 
 .nav-li {
   display: flex;
   margin-right: 20px;
-  font-size: 20px;
+  font-size: 22px;
   color: var(--primary-color);
   cursor: pointer;
-  color: #fff;
+  color: black;
   text-decoration: none;
   transition: all 0.3s ease-in-out;
 }
@@ -97,12 +103,9 @@ nav ul li {
 }
 
 .bannerContainer {
-  object-fit: contain;
-  margin: auto;
-}
-
-.bannerContainer img {
-  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 /* PRODUCT DISPLAY */
@@ -111,11 +114,11 @@ nav ul li {
   text-align: center;
   width: 25%;
   display: inline-block;
-  padding: 10px 1%;
+  padding: 10px;
   vertical-align: top;
-  border: 2px solid var(--primary-color);
+  border: 1px solid var(--primary-color);
   box-shadow: grey;
-  border-radius: 5%;
+  border-radius: 10px;
   margin-right: 1%;
   margin-left: 1%;
   margin-top: 25px;
@@ -131,77 +134,53 @@ nav ul li {
   font-size: 22px;
 }
 
-.product-mosaic img.product-img {
-  display: block;
-  width: 100px;
-  height: 100px;
+.products-cards-img {
+  object-fit: contain;
   margin: auto;
-  border: 1px solid grey;
-  border-radius: 50%;
+  border-radius: 10px;
 }
+
+.products-cards-img img {
+  width: 100%;
+}
+
 .product-mosaic a {
   text-decoration: none;
   color: black;
 }
 
-.product-mosaic .card-price {
-  font-size: 2.5rem;
-}
-
-.product-mosaic form {
+.products-cards-bottom {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
   align-items: center;
-}
-
-.product-mosaic form input {
-  width: 25px;
-  height: 25px;
-  margin: 0;
-  padding: 0;
-}
-
-.product-mosaic .addToBasket {
-  color: var(--primary-color);
-  font-size: 1.6em;
-  margin-left: 5%;
+  margin-top: 10px;
 }
 
 .popUp {
-  border: 2px solid var(--primary-color);
-  border-radius: 20px;
+  background-color: var(--primary-color);
+  border-radius: 10px;
   position: fixed;
   top: 100px;
-  left: 32%;
+  right: 5px;
   z-index: 15;
-  background-color: white;
+  color: white;
   text-align: center;
   padding: 10px 20px;
+  transform: translateX(120%);
+  animation: translatePopUp 3s ease-in-out;
 }
 
-.popUp .closePopUp {
-  width: 15%;
-  margin: 5px 20px 0 91%;
-  cursor: pointer;
-}
-
-.popUp img {
-  margin-top: 30px;
-  width: 100%;
-}
-
-.popUp button.closePopUp {
-  width: 80%;
-  margin: auto;
-  background-color: var(--primary-color);
-  color: white;
-  text-shadow: 0 1px 0 #c4c3c2, 0 -1px 0 #c4c3c2;
-  margin-top: 10px;
-  height: 42px;
-  border-radius: 12px;
-  border: 1px solid #c4c3c2;
-  padding-left: 3%;
-  outline: none;
+@keyframes translatePopUp {
+  0% {
+    transform: translateX(120%);
+  }
+  20%,
+  80% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(120%);
+  }
 }
 
 .container {
@@ -230,7 +209,10 @@ nav ul li {
 }
 
 .productDetail {
-  text-align: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .productDetail img {
@@ -238,15 +220,35 @@ nav ul li {
 }
 
 .productDetail h3 {
-  font-family: "Pacifico-Regular";
   font-size: 32px;
   text-shadow: 0 1px 0, 0 -1px 0 black;
   color: #f6c9c8;
   margin: 0;
 }
 
+.paymentPart form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 50px;
+}
+
+.paymentPart form button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
 .inputQuantity {
-  margin: 2%;
+  width: 20px;
+  height: 20px;
+  background-color: transparent;
+  border: 1px solid var(--primary-color);
+  margin: 0 10px;
 }
 
 .basketTable {
@@ -302,45 +304,8 @@ nav ul li {
   height: 40px;
 }
 
-.popUp {
-  border: 2px solid var(--primary-color);
-  border-radius: 20px;
-  position: fixed;
-  top: 100px;
-  left: 32%;
-  z-index: 15;
-  background-color: white;
-  text-align: center;
-  padding: 10px 20px;
-}
-
-.popUp .closePopUp {
-  width: 15%;
-  margin: 5px 20px 0 91%;
-  cursor: pointer;
-}
-
-.popUp img {
-  margin-top: 30px;
-  width: 100%;
-}
-
-.popUp button.closePopUp {
-  width: 80%;
-  margin: auto;
-  background-color: var(--primary-color);
-  color: white;
-  text-shadow: 0 1px 0 #c4c3c2, 0 -1px 0 #c4c3c2;
-  margin-top: 10px;
-  height: 42px;
-  border-radius: 12px;
-  border: 1px solid #c4c3c2;
-  padding-left: 3%;
-  outline: none;
-}
 .addProduct {
   color: #f4c8c8;
-  font-family: "Fjalla One", cursive;
   font-size: 17px;
   text-decoration: none;
 }
@@ -363,7 +328,6 @@ nav ul li {
 }
 
 .b-form input {
-  font-family: "Fjalla One", cursive;
   display: block;
   width: 87%;
   margin: auto;
@@ -376,7 +340,6 @@ nav ul li {
 }
 
 .b-form textarea {
-  font-family: "Fjalla One", cursive;
   display: block;
   width: 87%;
   margin: auto;
@@ -528,7 +491,6 @@ footer {
   width: 100%;
   justify-content: center;
   align-items: center;
-  background-color: var(--primary-color);
 }
 
 footer div {
@@ -542,7 +504,8 @@ footer div {
 
 footer div a {
   text-decoration: none;
-  color: white;
+  color: var(--primary-color);
+  font-size: 1.5em;
 }
 
 /* media for a responsive header and nav */
@@ -550,6 +513,10 @@ footer div a {
 @media screen and (max-width: 450px) {
   .hidden {
     display: none;
+  }
+
+  nav {
+    background-color: rgba(255, 255, 255, 0.8);
   }
 
   nav ul {
