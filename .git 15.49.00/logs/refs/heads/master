@@ -1,0 +1,7 @@
+0000000000000000000000000000000000000000 0270e22757eba9993e5b9ecc7bef72a611872b19 samisassi <samibrahimmac@gmail.com> 1647444215 +0100	commit (initial): new repo miss-coquette
+0270e22757eba9993e5b9ecc7bef72a611872b19 564cba55f96eb45f44315b25b8c50f365b503a38 samisassi <samibrahimmac@gmail.com> 1647511984 +0100	commit: WIP
+564cba55f96eb45f44315b25b8c50f365b503a38 45aa73d55a9fe1faedd29d9958eeba1a2c36a924 samisassi <samibrahimmac@gmail.com> 1647516252 +0100	commit: project color update. footer added
+45aa73d55a9fe1faedd29d9958eeba1a2c36a924 a34076d15b9c088d3e7c4cf82d6ad96ae7559e58 samisassi <samibrahimmac@gmail.com> 1647527062 +0100	commit: project finished
+a34076d15b9c088d3e7c4cf82d6ad96ae7559e58 0bbe4fd8cfdb4878088aef79d004105c92e5c8ea samisassi <samibrahimmac@gmail.com> 1647527375 +0100	commit: project ended
+0bbe4fd8cfdb4878088aef79d004105c92e5c8ea b535b651b3af15a8a6d9f39d1c5ffa8f59bb5d6c samisassi <samibrahimmac@gmail.com> 1647528081 +0100	rebase -i (finish): refs/heads/master onto 45aa73d55a9fe1faedd29d9958eeba1a2c36a924
+b535b651b3af15a8a6d9f39d1c5ffa8f59bb5d6c b9c183b9afa4a1f3423df3b4576a8b8218fa465b samisassi <samibrahimmac@gmail.com> 1647528120 +0100	pull: Merge made by the 'recursive' strategy.

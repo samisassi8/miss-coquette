@@ -1,0 +1,35 @@
+# This is a combination of 2 commits.
+# This is the 1st commit message:
+
+project finished
+
+# This is the commit message #2:
+
+project ended
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+#
+# Date:      Thu Mar 17 15:24:22 2022 +0100
+#
+# interactive rebase in progress; onto 45aa73d
+# Last commands done (2 commands done):
+#    pick a34076d project finished
+#    squash 0bbe4fd project ended
+# No commands remaining.
+# You are currently rebasing branch 'master' on '45aa73d'.
+#
+# Changes to be committed:
+#	modified:   front/.firebase/hosting.YnVpbGQ.cache
+#	modified:   front/src/components/article-product.js
+#	modified:   front/src/components/checkout-form.js
+#	modified:   front/src/config.js
+#	modified:   front/src/containers/admin/admin.js
+#	modified:   front/src/containers/admin/product/addProduct.js
+#	modified:   front/src/containers/admin/product/editProduct.js
+#	modified:   front/src/containers/basket.js
+#	modified:   front/src/containers/detail.js
+#	modified:   front/src/containers/profil.js
+#	modified:   front/src/containers/user/login.js
+#	modified:   front/src/helpers/require-data-auth.js
+#

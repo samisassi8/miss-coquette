@@ -1,6 +1,6 @@
 import { MODIFY_BASKET, CLEAN_BASKET } from "./actions-types";
 
-// permet d'ajouter des articles dans le basket
+// add article in the cart (basket)
 export const addToBasket = (basket, newProduct, quantityInCart) => {
   return function (dispatch) {
     //on recherche l'index (findIndex) si le produit est déjà présent dans le panier

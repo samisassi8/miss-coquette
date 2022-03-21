@@ -9,13 +9,10 @@ class Home extends React.Component {
     return (
       <>
         <div className="bannerContainer">
-        <img src={banner} alt="banner" />
+          <img src={banner} alt="banner" />
         </div>
         <div className="container">
-          {/* <h1 id="home-presentation"> */}
-          <h1 className="txt">
-            On a toutes le droit aux vêtements tendances.
-          </h1>
+          <h1 className="txt">On a toutes le droit aux vêtements tendances.</h1>
         </div>
       </>
     );
