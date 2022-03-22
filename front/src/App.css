@@ -55,6 +55,10 @@ main {
   position: left;
 }
 
+.nav-bg-blur {
+  background-color: rgba(255, 255, 255, 0.5);
+}
+
 nav {
   position: fixed;
   top: 0;
@@ -92,20 +96,19 @@ nav ul li {
   transition: all 0.3s ease-in-out;
 }
 
-.btn {
+.nav-btn {
   display: none;
+  margin: 10px;
   position: absolute;
-  right: 12px;
-  top: 8px;
-  padding: 5px;
-  color: black;
-  font-size: 17px;
+  top: 0;
+  right: 0;
 }
 
 .bannerContainer {
   display: flex;
   justify-content: center;
   align-items: center;
+  height: 100vh;
 }
 
 /* PRODUCT DISPLAY */
@@ -123,6 +126,18 @@ nav ul li {
   margin-left: 1%;
   margin-top: 25px;
   transition: transform 0.3s ease-in-out;
+}
+
+.product__logo {
+  display: none;
+  width: 100%;
+  object-fit: contain;
+}
+
+.product__logo img {
+  width: 125px;
+  border-radius: 50%;
+  margin: 0 auto;
 }
 
 .product-mosaic:hover {
@@ -215,15 +230,14 @@ nav ul li {
   align-items: center;
 }
 
-.productDetail img {
-  width: 40%;
+.productDetail__img {
+  width: 500px;
+  object-fit: contain;
 }
 
-.productDetail h3 {
-  font-size: 32px;
-  text-shadow: 0 1px 0, 0 -1px 0 black;
-  color: #f6c9c8;
-  margin: 0;
+.productDetail__img img {
+  width: 100%;
+  border-radius: 10px;
 }
 
 .paymentPart form {
@@ -252,7 +266,6 @@ nav ul li {
 }
 
 .basketTable {
-  border: 2px solid var(--primary-color);
   border-radius: 12px;
   padding: 15px 2%;
   /* margin-top: 20px; */
@@ -269,9 +282,9 @@ nav ul li {
   display: none;
 }
 
-.basketTable tr {
-  border: 2px solid #f4c8c8;
+.basketTable tbody tr {
   border-radius: 5%;
+  margin: 10px;
 }
 
 .basketTable th {
@@ -281,9 +294,10 @@ nav ul li {
 }
 
 .basketProduct {
-  margin: auto;
+  margin: 30px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
   align-items: center;
 }
 
@@ -291,7 +305,6 @@ nav ul li {
   object-fit: contain;
   width: 100px;
   height: 100px;
-  max-width: 100px;
 }
 
 .basketProduct img {
@@ -323,7 +336,7 @@ nav ul li {
   width: 50%;
   margin: auto;
   border: 2px solid var(--primary-color);
-  border-radius: 12px;
+  border-radius: 10px;
   padding: 10px 2% 20px 2%;
 }
 
@@ -333,7 +346,7 @@ nav ul li {
   margin: auto;
   margin-top: 10px;
   height: 32px;
-  border-radius: 12px;
+  border-radius: 10px;
   border: 1px solid #c4c3c2;
   padding-left: 3%;
   outline: none;
@@ -351,9 +364,12 @@ nav ul li {
   outline: none;
 }
 
-.b-form input[type="submit"] {
+.b-form input[type="submit"],
+.basket__submit {
   background-color: var(--primary-color);
   width: 35%;
+  padding: 5px;
+  border-radius: 10px;
   color: white;
   text-shadow: 0 1px 0 #c4c3c2, 0 -1px 0 #c4c3c2;
 }
@@ -423,83 +439,24 @@ nav ul li {
   width: 100%;
 }
 
-.FormGroup {
-  margin: 0 15px 20px;
-  padding: 0;
-  border-style: none;
-  background-color: #7795f8;
-  will-change: opacity, transform;
-  box-shadow: 0 6px 9px rgba(50, 50, 93, 0.06), 0 2px 5px rgba(0, 0, 0, 0.08),
-    inset 0 1px 0 #829fff;
-  border-radius: 4px;
-}
-
-.FormRow {
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-align: center;
-  align-items: center;
-  margin-left: 15px;
-  border-top: 1px solid #819efc;
-}
-
-.StripeElement--webkit-autofill {
-  background: transparent !important;
-}
-
-.StripeElement {
-  width: 100%;
-  padding: 11px 15px 11px 0;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
 footer {
   height: 50px;
   padding: 5px;
-  display: flex;
   position: fixed;
   bottom: 0;
   width: 100%;
-  justify-content: center;
+  display: flex;
+  justify-content: space-between;
   align-items: center;
 }
 
 footer div {
   max-width: 400px;
+  margin: auto;
   display: flex;
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  padding: 20px;
 }
 
 footer div a {
@@ -511,23 +468,31 @@ footer div a {
 /* media for a responsive header and nav */
 
 @media screen and (max-width: 450px) {
+  main {
+    padding-top: 50px;
+  }
+
   .hidden {
     display: none;
   }
 
   nav {
-    background-color: rgba(255, 255, 255, 0.8);
+    background-color: rgba(255, 255, 255, 0.9);
   }
 
   nav ul {
     margin: 0;
-    padding: 0;
+    padding: 20px;
     flex-direction: column;
     height: auto;
   }
 
   nav ul li {
-    margin: 10px;
+    margin: 20px;
+  }
+
+  .desktopOnly {
+    display: none;
   }
 
   .items {
@@ -539,11 +504,18 @@ footer div a {
   }
 
   .nav-btn {
-    margin: 10px;
     display: block;
-    position: absolute;
-    top: 0;
-    right: 0;
+    background-color: transparent;
+    border: none;
+    font-size: 1.25em;
+  }
+
+  .product__logo {
+    display: flex;
+  }
+
+  .productDetail__img {
+    width: 300px;
   }
 
   .productsList {
@@ -592,6 +564,7 @@ footer div a {
 
   .basketTable tr {
     display: flex;
+    border: 2px solid #f4c8c8;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;

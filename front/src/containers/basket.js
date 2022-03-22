@@ -139,6 +139,7 @@ class Basket extends React.Component {
               )}
               {this.props.cart.basket.length > 0 && (
                 <button
+                  className="basket__submit"
                   onClick={(e) => {
                     this.onClickSaveOrder();
                   }}

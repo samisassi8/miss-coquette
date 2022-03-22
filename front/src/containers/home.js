@@ -7,9 +7,7 @@ class Home extends React.Component {
   render() {
     return (
       <>
-        <div className="bannerContainer">
-        <h1>Miss Coquette</h1>
-        </div>
+        <div className="bannerContainer">{/* <h1>Miss Coquette</h1> */}</div>
       </>
     );
   }

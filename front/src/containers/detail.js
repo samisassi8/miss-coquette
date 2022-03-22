@@ -1,6 +1,5 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Link } from "react-router-dom";
 import { config } from "../config";
 import { loadProducts } from "../actions/product/productAction";
 import { addToBasket } from "../actions/basket/basketAction";
@@ -36,12 +35,12 @@ class Detail extends React.Component {
 
   render() {
     let id = this.props.params.id;
-    let index = this.props.product.products.findIndex(
+    let index = this.props?.product?.products.findIndex(
       (product) => product.id === parseInt(id)
     );
     return (
       <>
-        <h2>Detail</h2>
+        <h2>{this.props.product?.products[index]?.name}</h2>
 
         {/*POPUP HERE*/}
         <Popup
@@ -59,19 +58,20 @@ class Detail extends React.Component {
         {index !== -1 && (
           <div>
             <div className="productDetail">
-              <img
-                src={
-                  config.pict_url + this.props.product.products[index].picture
-                }
-                alt=""
-              />
-              <h3>{this.props.product.products[index].name}</h3>
-              <p>{this.props.product.products[index].description}</p>
+              <div className="productDetail__img">
+                <img
+                  src={
+                    config.pict_url + this.props.product?.products[index]?.picture
+                  }
+                  alt=""
+                />
+              </div>
+              <p>{this.props.product?.products[index]?.description}</p>
               {this.state.error !== null && <p>{this.state.error}</p>}
               <div className="paymentPart">
                 <span className="paymentSpan">
                   Prix Unitaire :{" "}
-                  <em>{this.props.product.products[index].price} €</em>
+                  <em>{this.props.product?.products[index]?.price} €</em>
                 </span>
 
                 <form>
@@ -87,7 +87,7 @@ class Detail extends React.Component {
                     className="addToBasket"
                     onClick={(e) => {
                       e.preventDefault();
-                      this.onClickAddBasket(this.props.product.products[index]);
+                      this.onClickAddBasket(this.props.product?.products[index]);
                     }}
                   >
                     Ajouter au panier
