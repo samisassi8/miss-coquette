@@ -95,8 +95,8 @@ function App() {
             }
           />
         </Routes>
+        <Footer />
       </main>
-      <Footer />
     </div>
   );
 }

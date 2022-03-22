@@ -49,6 +49,7 @@ class Login extends React.Component {
 
     return (
       <div>
+        <h2>Se connecter</h2>
         <form
           className="b-form"
           onSubmit={(e) => {

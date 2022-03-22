@@ -1,6 +1,6 @@
 import React from "react";
 import axios from "axios";
-// import {config} from '../../config';
+import { config } from "../../config";
 import { Navigate } from "react-router-dom";
 
 // page d'enregistrement d'un utilisateur
@@ -43,7 +43,7 @@ class Register extends React.Component {
     };
     // envoie le formulaire vers l'api
     axios
-      .post("http://localhost:8000/api/v1/user/save", datas)
+      .post(config.api_url + "/api/v1/user/save", datas)
       .then((response) => {
         this.setState({ navigate: true });
       })
@@ -52,11 +52,12 @@ class Register extends React.Component {
 
   render() {
     if (this.state.navigate) {
-      return <Navigate to="/" />;
+      return <Navigate to="/login" />;
     }
 
     return (
       <div>
+        <h2>S'enregister</h2>
         <form
           className="b-form"
           onSubmit={(e) => {
