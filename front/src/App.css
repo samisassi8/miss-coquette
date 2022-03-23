@@ -102,6 +102,7 @@ nav ul li {
 }
 
 .nav-btn {
+  z-index: 50;
   display: none;
   margin: 10px;
   position: absolute;
@@ -121,6 +122,7 @@ nav ul li {
 }
 
 .bannerContainer img {
+  margin: auto;
   width: 80%;
 }
 
@@ -130,7 +132,7 @@ nav ul li {
   text-align: center;
   width: 25%;
   display: inline-block;
-  padding: 10px;
+  /* padding: 20px 0; */
   vertical-align: top;
   border: 1px solid var(--primary-color);
   box-shadow: grey;
@@ -153,7 +155,7 @@ nav ul li {
   margin: 0 auto;
 }
 
-.product-mosaic:hover {
+:hover {
   transform: scale(1.03);
 }
 
@@ -166,10 +168,12 @@ nav ul li {
   object-fit: contain;
   margin: auto;
   border-radius: 10px;
+  padding: 4%;
 }
 
 .products-cards-img img {
-  width: 100%;
+  max-width: 100%;
+  max-height: 280px;
 }
 
 .product-mosaic a {
@@ -454,7 +458,6 @@ nav ul li {
 
 footer {
   height: 50px;
-  padding: 5px;
   position: absolute;
   bottom: 0;
   width: 100%;
@@ -541,6 +544,20 @@ footer div a {
 
   .productsList li {
     width: 100%;
+  }
+
+  .products-cards-img {
+    padding: 20px;
+  }
+
+  .products-cards-img img {
+    max-width: none;
+    max-height: none;
+    width: 100%;
+  }
+
+  .product-mosaic {
+    padding: 0;
   }
 
   tbody tr {
