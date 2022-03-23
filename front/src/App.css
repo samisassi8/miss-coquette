@@ -102,7 +102,6 @@ nav ul li {
 }
 
 .nav-btn {
-  z-index: 50;
   display: none;
   margin: 10px;
   position: absolute;
@@ -155,7 +154,7 @@ nav ul li {
   margin: 0 auto;
 }
 
-:hover {
+.product-mosaic:hover {
   transform: scale(1.03);
 }
 
@@ -520,6 +519,7 @@ footer div a {
   }
 
   .nav-btn {
+    z-index: 80;
     display: block;
     background-color: transparent;
     border: none;
